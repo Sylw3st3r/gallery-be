@@ -35,6 +35,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 var app = builder.Build();
 
+app.UseStaticFiles();
+
 app.UseCors(policy =>
     policy.AllowAnyOrigin()
           .AllowAnyMethod()

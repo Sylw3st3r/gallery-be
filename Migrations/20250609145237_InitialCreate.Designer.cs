@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace gallery_be.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250608105912_InitialCreate")]
+    [Migration("20250609145237_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -17,6 +17,29 @@ namespace gallery_be.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.5");
+
+            modelBuilder.Entity("GalleryItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GalleryItems");
+                });
 
             modelBuilder.Entity("User", b =>
                 {
